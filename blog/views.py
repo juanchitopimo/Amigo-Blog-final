@@ -56,6 +56,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         return False
 
+
 class PostDeleteView(DeleteView):
     model = Post
     success_url = '/'
