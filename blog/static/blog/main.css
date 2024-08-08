@@ -35,6 +35,11 @@ ul {
   font-weight: 500;
 }
 
+/* Logo styles */
+.logo {
+  max-width: 10%;
+}
+
 /* Content section styles */
 .content-section {
   background: #ffffff;
