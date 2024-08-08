@@ -66,3 +66,27 @@ class PostDeleteView(DeleteView):
         if self.request.user == post.author:
             return True
         return False
+
+# New Contact View
+
+def contact(request):
+    return render(request, 'blog/contact.html', {'title': 'Contact Us'})
+
+# def contact(request):
+#     if request.method == 'POST':
+#         name = request.POST['name']
+#         email = request.POST['email']
+#         message = request.POST['message']
+
+#         # Sending an email (optional)
+#         send_mail(
+#             f"Message from {name}",
+#             message,
+#             email,
+#             [settings.EMAIL_HOST_USER],  # Replace with your email
+#             fail_silently=False,
+#         )
+
+#         return HttpResponseRedirect(reverse('contact'))
+
+#     return render(request, 'blog/contact.html')        
