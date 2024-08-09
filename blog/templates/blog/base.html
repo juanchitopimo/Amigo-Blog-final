@@ -68,37 +68,29 @@
       
       <div class="col-md-4">
         <div class="content-section">
-          <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 380px;">
-            <a id="list-group" style="text-decoration: none;" href=""
-               class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
-              <span class="fs-5 fw-semibold" id="gist-btn">Latest Gist</span>
-            </a>
-            <div class="list-group list-group-flush border-bottom scrollarea">
-              <a href="#" class="list-group-item list-group-item-action lh-tight">
-                <div class="d-flex w-100 align-items-center justify-content-between">
-                  <strong class="mb-1">Seriously, Stop Trying to Teach Toddlers How to Code...By Desphixs</strong>
-                  <small>Wed</small>
+            <!-- Sidebar Header -->
+            <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white">
+                <a id="list-group" style="text-decoration: none;" href=""
+                   class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+                    <span class="fs-5 fw-semibold" id="most-commented-btn">Most Commented Posts</span>
+                </a>
+    
+                <!-- List of Most Commented Blogs/Posts -->
+                <div class="list-group list-group-flush border-bottom scrollarea">
+                    {% for post in most_commented_posts %}
+                    <a href="{{ post.get_absolute_url }}" class="list-group-item list-group-item-action lh-tight">
+                        <div class="d-flex w-100 align-items-center justify-content-between">
+                            <strong class="mb-1">{{ post.title }}</strong>
+                            <small class="text-muted">{{ post.comment_count }} Comments</small>
+                        </div>
+                        <div class="col-10 mb-1 small">{{ post.excerpt }}</div>
+                    </a>
+                    {% endfor %}
                 </div>
-                <div class="col-10 mb-1 small">AS A BABY nerd, I was obsessed with Hackers. The 1995 cult movie...</div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
-                <div class="d-flex w-100 align-items-center justify-content-between">
-                  <strong class="mb-1">Its not a bug - It's a feature... by Desphixs</strong>
-                  <small class="text-muted">Tues</small>
-                </div>
-                <div class="col-10 mb-1 small">When it comes to coding, everything works like a miracle...</div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
-                <div class="d-flex w-100 align-items-center justify-content-between">
-                  <strong class="mb-1">I wanted to be a great programmer but...by Desphixs</strong>
-                  <small class="text-muted">Mon</small>
-                </div>
-                <div class="col-10 mb-1 small">In my family trait, nobody knows anything about computers...</div>
-              </a>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+    
     </div>
 
     <footer class="">
