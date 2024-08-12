@@ -1,6 +1,12 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 
+<!-- Hero Image Section -->
+<div class="hero-image">
+  <img src="{{ 'media/images/amigo_blog.png' }}" alt="Hero Image" class="img-fluid">
+</div>
+
+<!-- Blog Posts Section -->
 {% for post in posts %}
 <article class="media content-section">
   <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt="">
