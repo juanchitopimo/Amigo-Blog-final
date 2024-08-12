@@ -1,16 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, Comment
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
-
-# def home(request):
-#     context = {
-#         'posts': Post.objects.all()
-#     }
-#     return render(request, 'blog/home.html', context)
-
+from .forms import CommentForm
 
 def about(request):
     return render(request, 'blog/about.html', {'title': "About Page"})
@@ -26,6 +19,31 @@ class PostListView(LoginRequiredMixin, ListView):
 class PostDetailView(LoginRequiredMixin, DetailView):
     model = Post
 
+    def dispatch(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            return self.post(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        post = self.get_object()
+        comment_form = CommentForm(self.request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.author = self.request.user
+            new_comment.save()
+            return redirect('post-detail', pk=post.pk)
+        else:
+            return self.get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        comments = post.comments.all()
+        context['comments'] = comments
+        context['comment_form'] = CommentForm()
+        return context
+
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
@@ -34,12 +52,6 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-
-    # def test_func(self):
-    #     post = self.get_object()
-    #     if self.request.user == post.author:
-    #         return True
-    #     return False
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -57,7 +69,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return False
 
 
-class PostDeleteView(DeleteView):
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     success_url = '/'
 
@@ -67,26 +79,6 @@ class PostDeleteView(DeleteView):
             return True
         return False
 
-# New Contact View
 
 def contact(request):
     return render(request, 'blog/contact.html', {'title': 'Contact Us'})
-
-# def contact(request):
-#     if request.method == 'POST':
-#         name = request.POST['name']
-#         email = request.POST['email']
-#         message = request.POST['message']
-
-#         # Sending an email (optional)
-#         send_mail(
-#             f"Message from {name}",
-#             message,
-#             email,
-#             [settings.EMAIL_HOST_USER],  # Replace with your email
-#             fail_silently=False,
-#         )
-
-#         return HttpResponseRedirect(reverse('contact'))
-
-#     return render(request, 'blog/contact.html')        
