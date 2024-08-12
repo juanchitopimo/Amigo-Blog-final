@@ -5,10 +5,6 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import CommentForm
 
-# from .forms import CommentForm  # Update this
-from blog.forms import CommentForm  # To this
-
-
 def about(request):
     return render(request, 'blog/about.html', {'title': "About Page"})
 
@@ -23,26 +19,29 @@ class PostListView(LoginRequiredMixin, ListView):
 class PostDetailView(LoginRequiredMixin, DetailView):
     model = Post
 
+    def dispatch(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            return self.post(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        post = self.get_object()
+        comment_form = CommentForm(self.request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.author = self.request.user
+            new_comment.save()
+            return redirect('post-detail', pk=post.pk)
+        else:
+            return self.get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
-        # Override to add comment form and comments to the context
         context = super().get_context_data(**kwargs)
         post = self.get_object()
         comments = post.comments.all()
         context['comments'] = comments
-
-        # Comment form
-        if self.request.method == 'POST':
-            comment_form = CommentForm(self.request.POST)
-            if comment_form.is_valid():
-                new_comment = comment_form.save(commit=False)
-                new_comment.post = post
-                new_comment.author = self.request.user
-                new_comment.save()
-                return redirect('post_detail', pk=post.pk)
-        else:
-            comment_form = CommentForm()
-
-        context['comment_form'] = comment_form
+        context['comment_form'] = CommentForm()
         return context
 
 
