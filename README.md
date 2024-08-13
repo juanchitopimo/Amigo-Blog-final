@@ -51,6 +51,9 @@ The design of Amigo Blog was guided by user experience (UX) best practices and c
 
 Wireframes were used during the planning phase to map out the layout of the app and the user journey. This process helped in visualizing the design and ensuring that the app would be intuitive and user-friendly.
 
+<img width="1001" alt="wireframes" src="https://github.com/user-attachments/assets/9ad03b80-c60e-4a2a-809f-0aca8fe523b3">
+<img width="389" alt="wireframes1" src="https://github.com/user-attachments/assets/33a7e5da-8d55-479a-8ba7-c90e73f6d7b4">
+
 ## Technologies Used
 
 - **CSS**: For styling and layout of the app.
@@ -140,3 +143,20 @@ In Amigo Blog, I used Django's built-in User Model and created custom models for
 ## License
 
 This project is licensed under the MIT License.
+
+## Credits
+
+- The structure of my website was based on this tutorial by Dee Mc: [YouTube Tutorial](https://www.youtube.com/watch?v=OBsLgCm-Ayo&t=509s)
+- This project was also base on the walkthouproject of the Code Institute. 
+- **ChatGPT** was used for troubleshooting, bug fixing and content generation. 
+- Thanks to the other members of the **Bootcamp** for their technical and moral support.
+- **Font Awesome** was used for icons.
+- **Google Fonts** was used for typography.
+- **Wireframes** created using **Balsamiq**.
+- **Logo** and **flow chart** created using **Canva**.
+- **Canva** was also used for picture editing.
+- **HubSpot** was used for marketing research.
+- **YouTube** was used for research and further learning.
+- Thanks to the **Code Institute** team for their guidance and support.
+- **Pixabay** was used for image research.
+
