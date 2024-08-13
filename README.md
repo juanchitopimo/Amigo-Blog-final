@@ -21,6 +21,12 @@
   - Leave comments on posts to engage in discussions.
   - View and manage comments on your own posts.
 
+- **Sidebar**: 
+  - Displays the 5 most commented posts for easy access.
+
+- **Footer**: 
+  - Includes sections for Home, Contact, Admin (for admin users), and About.
+
 ## Persona & User Stories
 
 ### Target Audience
@@ -62,11 +68,40 @@ Wireframes were used during the planning phase to map out the layout of the app 
 
 ## Workflow
 
-The development of Amigo Blog followed the **Agile Methodology**, which allowed for iterative progress and flexibility. The project was managed using GitHub Projects, where tasks were organized and tracked. Key tools and processes used in the workflow included:
+### Agile Methodology
+For this project, I adopted an Agile methodology. This is the first time I have used this approach on a solo project, although I have used it as a group during hackathons. I feel this has helped me to:
+- **Organize and prioritize my workflow**: This has been essential due to the very limited timeframe we had to complete this project.
+- **Adjust my expectations and still produce the required MVP**: The iterative process allowed me to adapt and ensure that the most crucial features were delivered on time.
 
-- **Django User Models**: To manage user profiles and authentication.
-- **Wireframes**: To plan the user interface and experience.
-- **Pen and Paper**: For initial brainstorming and sketching ideas.
+I created a site map and workflow diagram:
+
+https://github.com/users/juanchitopimo/projects/4
+
+![Workflow Diagram](https://github.com/users/juanchitopimo/projects/4)
+
+I used GitHub Projects to convert my user stories into actionable tasks. The acceptance criteria were very helpful to ensure all necessary tasks were completed.
+
+![GitHub Projects](https://github.com/rachbry/recipme-django-cookbook/assets/73660517/3e491c10-88c9-4477-96e9-c529f37d60bc)
+
+### Models
+In Amigo Blog, I used Django's built-in User Model and created custom models for posts and notifications. Here are the key models and fields used:
+
+#### Post Model
+| Name          | Type           | Key  |
+|---------------|----------------|------|
+| title         | CharField      |      |
+| content       | TextField      |      |
+| date_posted   | DateTimeField  |      |
+| author        | ForeignKey     | FK   |
+| excerpt       | TextField      |      |
+
+#### Notification Model
+| Name      | Type           | Key  |
+|-----------|----------------|------|
+| user      | ForeignKey     | FK   |
+| message   | CharField      |      |
+| timestamp | DateTimeField  |      |
+| read      | BooleanField   |      |
 
 ## Testing
 
