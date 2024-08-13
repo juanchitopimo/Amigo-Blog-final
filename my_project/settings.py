@@ -44,12 +44,16 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
     #own applications
     'crispy_forms',
-    'blog',
+    'blog.apps.BlogConfig',
+    # 'blog',
     'users',
     # 'bootstrap4',
     'crispy_bootstrap4',
+  
+
 
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
