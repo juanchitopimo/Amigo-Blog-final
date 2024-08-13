@@ -81,7 +81,7 @@ https://github.com/users/juanchitopimo/projects/4
 
 I used GitHub Projects to convert my user stories into actionable tasks. The acceptance criteria were very helpful to ensure all necessary tasks were completed.
 
-![GitHub Projects](https://github.com/rachbry/recipme-django-cookbook/assets/73660517/3e491c10-88c9-4477-96e9-c529f37d60bc)
+![board](/workspace/Amigo-Blog-final/readme_images/board.png)
 
 ### Models
 In Amigo Blog, I used Django's built-in User Model and created custom models for posts and notifications. Here are the key models and fields used:
