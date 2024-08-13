@@ -4,7 +4,6 @@ from django.contrib import messages
 from .forms import UserRegisterForm, ProfileUpdateForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
 
-
 def register(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
@@ -45,3 +44,5 @@ def profile_update(request):
         "p_form": p_form
     }
     return render(request, 'users/profile_update.html', context)
+
+

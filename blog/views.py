@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post, Comment
+from .models import Post, Comment, Notification
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import CommentForm
@@ -71,3 +71,27 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def contact(request):
     return render(request, 'blog/contact.html', {'title': 'Contact Us'})
+
+#  Display Notifications in the User Interface
+
+def notifications(request):
+    notifications = Notification.objects.filter(user=request.user, read=False)
+    notifications.update(read=True)
+    context = {
+        'notifications': notifications
+    }
+    return render(request, 'blog/notifications.html', context)
+
+import logging
+
+logger = logging.getLogger(__name__)
+
+def notifications(request):
+    notifications = Notification.objects.filter(user=request.user, read=False)
+    logger.info(f'Found {notifications.count()} unread notifications for user {request.user.username}')
+    notifications.update(read=True)
+    context = {
+        'notifications': notifications
+    }
+    return render(request, 'blog/notifications.html', context)
+
