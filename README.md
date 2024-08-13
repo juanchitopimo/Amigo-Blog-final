@@ -26,6 +26,15 @@
 
 - **Footer**: 
   - Includes sections for Home, Contact, Admin (for admin users), and About.
+ 
+#### Features Walkthrough
+
+  <img width="1178" alt="Screenshot 2024-08-13 at 21 17 56" src="https://github.com/user-attachments/assets/7cd35eaf-9387-4755-9708-f9ac63668e03">
+
+  <img width="1976" alt="Screenshot 2024-08-13 at 21 34 57" src="https://github.com/user-attachments/assets/0d0ae931-65a4-45d1-b5be-d5ea9bf82617">
+
+#### Post Creating & User Update
+  <img width="2522" alt="Screenshot 2024-08-13 at 21 49 38" src="https://github.com/user-attachments/assets/907b2cf9-343e-4faa-a1f6-35b352460f65">
 
 ## Persona & User Stories
 
@@ -111,6 +120,8 @@ In Amigo Blog, I used Django's built-in User Model and created custom models for
 | read      | BooleanField   |      |
 
 ## Testing
+### main CSS validation
+<img width="876" alt="css_check" src="https://github.com/user-attachments/assets/30698db0-861b-4cfe-9ddf-d04306e00f7c">
 
 ### Functional Testing
 
@@ -128,21 +139,6 @@ In Amigo Blog, I used Django's built-in User Model and created custom models for
 ### Cross-Browser Testing
 
 - The app was tested across multiple browsers (Chrome, Firefox, Safari) to ensure compatibility.
-
-### Security Testing
-
-- **CSRF Protection**: Ensured that forms are protected against Cross-Site Request Forgery.
-- **User Authentication**: Verified that user data is secure and authentication is handled properly.
-
-## Future Enhancements
-
-- **Notifications**: Implement a notification system to alert users of new comments on their posts.
-- **Search Functionality**: Add a search bar to allow users to search for posts by keywords.
-- **Social Media Integration**: Allow users to share their posts on social media platforms.
-
-## License
-
-This project is licensed under the MIT License.
 
 ## Credits
 
