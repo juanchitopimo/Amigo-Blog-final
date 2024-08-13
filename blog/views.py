@@ -1,8 +1,14 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect
 from .models import Post, Comment, Notification
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import CommentForm
+import logging
+from users.views import notifications
+
+
+# Set up logging
+logger = logging.getLogger(__name__)
 
 def about(request):
     return render(request, 'blog/about.html', {'title': "About Page"})
@@ -47,15 +53,28 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        
+        # Create a notification for the newly created post
+        message = f'You have created a new post: {form.instance.title}'
+        Notification.objects.create(user=self.request.user, message=message)
+        logger.info(f'Notification created: {message}')
+        
+        return response
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'content']
 
     def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        
+        # Create a notification for the updated post
+        message = f'You have updated your post: {form.instance.title}'
+        Notification.objects.create(user=self.request.user, message=message)
+        logger.info(f'Notification created: {message}')
+        
+        return response
 
     def test_func(self):
         post = self.get_object()
@@ -72,20 +91,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def contact(request):
     return render(request, 'blog/contact.html', {'title': 'Contact Us'})
 
-#  Display Notifications in the User Interface
-
-def notifications(request):
-    notifications = Notification.objects.filter(user=request.user, read=False)
-    notifications.update(read=True)
-    context = {
-        'notifications': notifications
-    }
-    return render(request, 'blog/notifications.html', context)
-
-import logging
-
-logger = logging.getLogger(__name__)
-
+# Display Notifications in the User Interface
 def notifications(request):
     notifications = Notification.objects.filter(user=request.user, read=False)
     logger.info(f'Found {notifications.count()} unread notifications for user {request.user.username}')
@@ -94,4 +100,3 @@ def notifications(request):
         'notifications': notifications
     }
     return render(request, 'blog/notifications.html', context)
-

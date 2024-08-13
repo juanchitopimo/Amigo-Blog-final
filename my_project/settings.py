@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     #own applications
     'crispy_forms',
     'blog.apps.BlogConfig',
-
     # 'blog',
     'users',
     # 'bootstrap4',

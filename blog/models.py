@@ -14,7 +14,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog-detail', kwargs={'pk': self.pk})
+        return reverse('post-detail', kwargs={'pk': self.pk})
 
     def save(self, *args, **kwargs):
         if not self.excerpt:
@@ -32,7 +32,7 @@ class Comment(models.Model):
 
 
 class Notification(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_notifications')
     message = models.CharField(max_length=255)
     timestamp = models.DateTimeField(auto_now_add=True)
     read = models.BooleanField(default=False)

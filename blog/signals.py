@@ -10,3 +10,6 @@ def create_notification(sender, instance, created, **kwargs):
         message = f'You have updated your post: {instance.title}'
 
     Notification.objects.create(user=instance.author, message=message)
+
+    Notification.objects.create(user=instance.author, message=message)
+

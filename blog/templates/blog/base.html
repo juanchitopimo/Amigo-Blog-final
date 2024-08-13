@@ -36,7 +36,7 @@
           <!-- Navbar Right Side -->
           <div class="navbar-nav">
             {% if user.is_authenticated %}
-              <a href="{% url 'blog-new' %}" id="auth-links" class="nav-item nav-link">Create Post</a>
+              <a href="{% url 'post-create' %}" id="auth-links" class="nav-item nav-link">Create Post</a>
               <a href="{% url 'notifications' %}" id="auth-links" class="nav-item nav-link">Notifications</a> <!-- Added Notifications Link -->
               <a href="{% url 'profile' %}" id="auth-links" class="nav-item nav-link">Profile</a>
               <a href="{% url 'logout' %}" id="auth-links" class="nav-item nav-link">Logout</a>

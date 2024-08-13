@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import UserRegisterForm, ProfileUpdateForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
+from .models import Notification
 
 def register(request):
     if request.method == "POST":
@@ -44,5 +45,14 @@ def profile_update(request):
         "p_form": p_form
     }
     return render(request, 'users/profile_update.html', context)
+
+@login_required
+def notifications(request):
+    notifications = Notification.objects.filter(user=request.user, read=False)
+    notifications.update(read=True)
+    context = {
+        'notifications': notifications
+    }
+    return render(request, 'users/notifications.html', context)
 
 
