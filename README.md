@@ -76,6 +76,10 @@ For this project, I adopted an Agile methodology. This is the first time I have 
 I created a site map and workflow diagram:
 
 https://github.com/users/juanchitopimo/projects/4
+![](vscode-remote://juanchitopi-amigoblogfi-e12nif7seaj.ws.codeinstitute-ide.net/workspace/Amigo-Blog-final/readme_images/board.png)
+
+<img width="1129" alt="board1" src="https://github.com/user-attachments/assets/6cfd4794-22d8-4da5-9c4d-a697ba4b6354">
+
 
 ![Workflow Diagram](https://github.com/users/juanchitopimo/projects/4)
 
