@@ -8,18 +8,20 @@ from users.views import notifications
 from django.contrib.messages.views import SuccessMessageMixin
 
 
-
 # Set up logging
 logger = logging.getLogger(__name__)
 
+
 def about(request):
     return render(request, 'blog/about.html', {'title': "About Page"})
+
 
 class PostListView(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'blog/home.html'
     context_object_name = 'posts'
     ordering = ["-date_posted"]
+
 
 class PostDetailView(LoginRequiredMixin, DetailView):
     model = Post
@@ -49,41 +51,33 @@ class PostDetailView(LoginRequiredMixin, DetailView):
         context['comment_form'] = CommentForm()
         return context
 
+
 class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Post
     fields = ['title', 'content']
     success_message = "post  was created successfully"
 
-
     def form_valid(self, form):
         form.instance.author = self.request.user
         response = super().form_valid(form)
-        # Create a notification for the newly created post
-    
-        # message = f'You have created a new post: {form.instance.title}'
-        # Notification.objects.create(user=self.request.user, message=message)
-        # logger.info(f'Notification created: {message}')
-        
+
         return response
 
-class PostUpdateView(LoginRequiredMixin, SuccessMessageMixin,UserPassesTestMixin, UpdateView):
+
+class PostUpdateView(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'content']
     success_message = "post  was updated successfully"
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        
-        # Create a notification for the updated post
-        # message = f'You have updated your post: {form.instance.title}'
-        # Notification.objects.create(user=self.request.user, message=message)
-        # logger.info(f'Notification created: {message}')
-        
+
         return response
 
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
@@ -93,13 +87,15 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         post = self.get_object()
         return self.request.user == post.author
 
+
 def contact(request):
     return render(request, 'blog/contact.html', {'title': 'Contact Us'})
 
-# Display Notifications in the User Interface
+
 def notifications(request):
     notifications = Notification.objects.filter(user=request.user, read=False)
-    logger.info(f'Found {notifications.count()} unread notifications for user {request.user.username}')
+    logger.info(f'Found {notifications.count()} unread notifications for user {
+                request.user.username}')
     notifications.update(read=True)
     context = {
         'notifications': notifications

@@ -5,13 +5,15 @@ from .forms import UserRegisterForm, ProfileUpdateForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
 from .models import Notification
 
+
 def register(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account Successfully Created for {username} Login In Now!!!')
+            messages.success(request, f'Account Successfully Created for {
+                             username} Login In Now!!!')
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -21,6 +23,7 @@ def register(request):
 @login_required
 def profile(request):
     return render(request, 'users/profile.html')
+
 
 @login_required
 def profile_update(request):
@@ -46,6 +49,7 @@ def profile_update(request):
     }
     return render(request, 'users/profile_update.html', context)
 
+
 @login_required
 def notifications(request):
     notifications = Notification.objects.filter(user=request.user, read=False)
@@ -54,5 +58,3 @@ def notifications(request):
         'notifications': notifications
     }
     return render(request, 'users/notifications.html', context)
-
-

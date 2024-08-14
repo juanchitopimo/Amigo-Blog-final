@@ -29,7 +29,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-juanchitopi-amigoblogfi-e12nif7seaj.ws.codeinstitute-ide.net', '.herokuapp.com']
+ALLOWED_HOSTS = [
+    '8000-juanchitopi-amigoblogfi-e12nif7seaj.ws.codeinstitute-ide.net', '.herokuapp.com']
 
 
 # Application definition
@@ -45,14 +46,14 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-    #own applications
+    # own applications
     'crispy_forms',
     'blog.apps.BlogConfig',
     # 'blog',
     'users',
     # 'bootstrap4',
     'crispy_bootstrap4',
-  
+
 
 
 ]
