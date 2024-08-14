@@ -79,9 +79,10 @@ class PostUpdateView(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixi
         return self.request.user == post.author
 
 
-class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class PostDeleteView(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, DeleteView):
     model = Post
     success_url = '/'
+    success_message = "post was deleted successfully"
 
     def test_func(self):
         post = self.get_object()
