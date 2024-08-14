@@ -66,17 +66,18 @@ class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         
         return response
 
-class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, SuccessMessageMixin,UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'content']
+    success_message = "post  was updated successfully"
 
     def form_valid(self, form):
         response = super().form_valid(form)
         
         # Create a notification for the updated post
-        message = f'You have updated your post: {form.instance.title}'
-        Notification.objects.create(user=self.request.user, message=message)
-        logger.info(f'Notification created: {message}')
+        # message = f'You have updated your post: {form.instance.title}'
+        # Notification.objects.create(user=self.request.user, message=message)
+        # logger.info(f'Notification created: {message}')
         
         return response
 

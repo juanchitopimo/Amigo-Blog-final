@@ -23,16 +23,16 @@ def user_logged_in_handler(sender, request, user, **kwargs):
     messages.success(request, f'Hola or hello, {user.username}!')
     Notification.objects.create(user=user, message="You've successfully logged in.")
 
-# To create a notification when a blog post is created
-@receiver(post_save, sender=Post)
-def create_post_notification(sender, instance, created, **kwargs):
-    if created:
-        Notification.objects.create(
-            user=instance.author,
-            message=f'You have created a new post: {instance.title}'
-        )
-    else:
-        Notification.objects.create(
-            user=instance.author,
-            message=f'You have updated your post: {instance.title}'
-        )
+# # To create a notification when a blog post is created
+# @receiver(post_save, sender=Post)
+# def create_post_notification(sender, instance, created, **kwargs):
+#     if created:
+#         Notification.objects.create(
+#             user=instance.author,
+#             message=f'You have created a new post: {instance.title}'
+#         )
+#     else:
+#         Notification.objects.create(
+#             user=instance.author,
+#             message=f'You have updated your post: {instance.title}'
+#         )
