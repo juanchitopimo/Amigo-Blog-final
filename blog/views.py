@@ -5,6 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import CommentForm
 import logging
 from users.views import notifications
+from django.contrib.messages.views import SuccessMessageMixin
+
 
 
 # Set up logging
@@ -47,32 +49,35 @@ class PostDetailView(LoginRequiredMixin, DetailView):
         context['comment_form'] = CommentForm()
         return context
 
-class PostCreateView(LoginRequiredMixin, CreateView):
+class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Post
     fields = ['title', 'content']
+    success_message = "post  was created successfully"
+
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         response = super().form_valid(form)
-        
         # Create a notification for the newly created post
-        message = f'You have created a new post: {form.instance.title}'
-        Notification.objects.create(user=self.request.user, message=message)
-        logger.info(f'Notification created: {message}')
+    
+        # message = f'You have created a new post: {form.instance.title}'
+        # Notification.objects.create(user=self.request.user, message=message)
+        # logger.info(f'Notification created: {message}')
         
         return response
 
-class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, SuccessMessageMixin,UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'content']
+    success_message = "post  was updated successfully"
 
     def form_valid(self, form):
         response = super().form_valid(form)
         
         # Create a notification for the updated post
-        message = f'You have updated your post: {form.instance.title}'
-        Notification.objects.create(user=self.request.user, message=message)
-        logger.info(f'Notification created: {message}')
+        # message = f'You have updated your post: {form.instance.title}'
+        # Notification.objects.create(user=self.request.user, message=message)
+        # logger.info(f'Notification created: {message}')
         
         return response
 
