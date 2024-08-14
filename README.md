@@ -123,6 +123,12 @@ In Amigo Blog, I used Django's built-in User Model and created custom models for
 ### main CSS Validation
 <img width="876" alt="css_check" src="https://github.com/user-attachments/assets/30698db0-861b-4cfe-9ddf-d04306e00f7c">
 
+### Main base HTML Validation
+
+#### Appart for the Django extention the html has no issues.
+
+<img width="1230" alt="Screenshot 2024-08-14 at 13 46 08" src="https://github.com/user-attachments/assets/3d40ba3b-8c83-465d-a4dd-93c981a0c716">
+
 ### Python Validation
 
 <img width="962" alt="Screenshot 2024-08-14 at 12 50 02" src="https://github.com/user-attachments/assets/19d794e1-9cfe-4b9d-93e1-690b47f40c9a">
@@ -132,6 +138,8 @@ In Amigo Blog, I used Django's built-in User Model and created custom models for
 
 
 ### Functional Testing
+
+<img width="793" alt="Screenshot 2024-08-14 at 12 51 41" src="https://github.com/user-attachments/assets/d53c767b-20ae-4ccc-8ac1-897c80f12358">
 
 - **Profile Creation**: Tested the ability to create, view, and update profiles.
 - **Post Creation and Management**: Verified that users can create, edit, and delete posts without issues.
