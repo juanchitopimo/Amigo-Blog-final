@@ -120,8 +120,16 @@ In Amigo Blog, I used Django's built-in User Model and created custom models for
 | read      | BooleanField   |      |
 
 ## Testing
-### main CSS validation
+### main CSS Validation
 <img width="876" alt="css_check" src="https://github.com/user-attachments/assets/30698db0-861b-4cfe-9ddf-d04306e00f7c">
+
+### Python Validation
+
+<img width="962" alt="Screenshot 2024-08-14 at 12 50 02" src="https://github.com/user-attachments/assets/19d794e1-9cfe-4b9d-93e1-690b47f40c9a">
+<img width="1113" alt="Screenshot 2024-08-14 at 12 47 07" src="https://github.com/user-attachments/assets/1e6a40a3-0d8b-4c84-8db0-7208866a7db4">
+<img width="972" alt="Screenshot 2024-08-14 at 12 43 02" src="https://github.com/user-attachments/assets/402462d1-905b-484a-b6f0-8451cb2505d6">
+<img width="979" alt="Screenshot 2024-08-14 at 12 33 13" src="https://github.com/user-attachments/assets/b514d285-0a84-4c3f-971e-4e4b921ca5f1">
+
 
 ### Functional Testing
 
