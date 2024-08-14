@@ -146,6 +146,11 @@ In Amigo Blog, I used Django's built-in User Model and created custom models for
 
 - The app was tested across multiple browsers (Chrome, Firefox, Safari) to ensure compatibility.
 
+## Responsiveness
+
+The Amigo Blog app has been designed with a mobile-first approach to ensure a seamless experience across all devices. The layout and functionality have been tested on various screen sizes, including mobile phones, tablets, and desktop computers. No issues were encountered during testing, and the app's design adapts smoothly to different resolutions and orientations. Users can access the blog, create and manage posts, and interact with the community with ease, regardless of the device they are using.
+
+
 ## Bugs & Improvements
 
 - On the edit recipe page, there is no success message appearing. It does reload the page if successful and returns to the top of the page.
