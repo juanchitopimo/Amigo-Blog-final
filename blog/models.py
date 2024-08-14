@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.urls import reverse
 
+
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
@@ -18,11 +19,14 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.excerpt:
-            self.excerpt = self.content[:100]  # First 100 characters of content
+            # First 100 characters of content
+            self.excerpt = self.content[:100]
         super().save(*args, **kwargs)
 
+
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -32,7 +36,8 @@ class Comment(models.Model):
 
 
 class Notification(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_notifications')
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='blog_notifications')
     message = models.CharField(max_length=255)
     timestamp = models.DateTimeField(auto_now_add=True)
     read = models.BooleanField(default=False)

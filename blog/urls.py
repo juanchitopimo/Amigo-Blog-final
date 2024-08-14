@@ -6,13 +6,14 @@ from users.views import notifications
 urlpatterns = [
     # Static pages
     path('about/', views.about, name="blog-about"),
-    path('contact/', views.contact, name='blog-contact'), 
+    path('contact/', views.contact, name='blog-contact'),
 
     # Notifications
     path('notifications/', notifications, name='notifications'),
 
     # Post-related paths
-    path('post/new/', PostCreateView.as_view(), name="post-create"),  # Updated name to be more descriptive
+    # Updated name to be more descriptive
+    path('post/new/', PostCreateView.as_view(), name="post-create"),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name="post-update"),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name="post-delete"),

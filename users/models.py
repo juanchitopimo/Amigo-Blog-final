@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from PIL import Image
 
 
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
@@ -21,7 +20,8 @@ class Profile(models.Model):
 
 
 class Notification(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_notifications')
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_notifications')
     message = models.CharField(max_length=255)
     timestamp = models.DateTimeField(auto_now_add=True)
     read = models.BooleanField(default=False)
