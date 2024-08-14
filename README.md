@@ -4,6 +4,8 @@
 
 **Amigo Blog** is a Django-powered application designed to provide a platform for the Latin community in the UK to share their stories, experiences, and connect with others. Whether you are studying, working, or just visiting the UK, Amigo Blog allows you to create a profile, post your stories, and comment on others' posts, fostering a sense of community among Latin Americans in the UK.
 
+<img width="1131" alt="Screenshot 2024-08-14 at 15 03 30" src="https://github.com/user-attachments/assets/0fa20c3c-9dd4-45b3-af3a-43b8f1023d23">
+
 ## Features
 
 - **CRUD Functionality**: 
