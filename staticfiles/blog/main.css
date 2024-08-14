@@ -1,0 +1,365 @@
+
+/* Main body styles */
+body {
+  background-color: rgb(255, 255, 255);
+  margin-top: 5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6, p {
+  color: #444444;
+  font-family: 'Poppins', sans-serif;
+}
+
+ul {
+  margin: 0;
+}
+
+/* Background gradient for specific sections */
+.bg-steel {
+  background: linear-gradient(270deg, rgb(255, 0, 0) 0%, rgb(220, 179, 0) 100%);
+}
+
+/* Navbar link styles */
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+/* Logo styles */
+.logo {
+  max-width: 10%;
+}
+
+/* Content section styles */
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Article title styles */
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #9900ff;
+  text-decoration: none;
+}
+
+/* Article content styles */
+.article-content {
+  white-space: pre-line;
+}
+
+/* Article image styles */
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+/* Article metadata styles */
+.article-metadata {
+  font-family: 'Poppins', sans-serif;
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+/* SVG icon styles */
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+/* Account image styles */
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+/* Account heading styles */
+.account-heading {
+  font-size: 2.5rem;
+}
+
+/* General SVG styles */
+svg {
+  width: 50px;
+  height: 50px;
+}
+
+/* Auth link styles */
+#auth-links {
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  display: inline-block;
+  padding: 12px 3px;
+  margin: 10px 0;
+  color: #03e9f4;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  margin-right: 5px;
+}
+
+
+#auth-links:hover {
+  font-weight: bold;
+  background: #ffffff;
+  text-decoration: none;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px #03e9f4;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+/* Auth link animation spans
+#auth-links span {
+  position: absolute;
+  display: block;
+} */
+
+/* First span animation */
+#auth-links span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animate1 1s linear infinite;
+}
+
+/* @keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+} */
+
+/* Second span animation */
+#auth-links span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+/* 
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%, 100% {
+    top: 100%;
+  }
+} */
+
+/* Third span animation */
+#auth-links span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.50s;
+}
+
+/* @keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%, 100% {
+    right: 100%;
+  }
+} */
+
+/* Fourth span animation */
+#auth-links span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+/* @keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+} */
+
+/* Gist button styles */
+#gist-btn {
+  color: black;
+  background: linear-gradient(270deg, rgb(221 177 0) 0%, rgb(254 3 0) 100%);
+  padding: 10px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#gist-btn:hover {
+  text-decoration: none;
+}
+
+/* Card styles */
+.cardd {
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.849);
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  border-radius: 30px;
+}
+
+/* Profile heading styles */
+#profile-h1 {
+  color: rgb(255, 255, 255);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Title styles */
+.title {
+  font-family: 'Poppins', sans-serif;
+  color: rgb(68 68 68);
+  font-size: 18px;
+}
+
+/* Button styles */
+button {
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  transition: 1s;
+  background: linear-gradient(270deg, rgb(254 3 0) 0%, rgb(221 177 0) 100%);
+}
+
+/* Profile image styles */
+#profile-img {
+  margin-top: 20px;
+  box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.486);
+  border-radius: 50px;
+}
+
+/* Media queries for responsiveness */
+
+/* For screens smaller than 1200px */
+@media (max-width: 1200px) {
+  .content-section {
+    padding: 8px 16px;
+  }
+}
+
+/* For screens smaller than 992px */
+@media (max-width: 992px) {
+  .account-heading {
+    font-size: 2rem;
+  }
+
+  .account-img {
+    height: 100px;
+    width: 100px;
+  }
+
+  #profile-img {
+    margin-top: 15px;
+    border-radius: 30px;
+  }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .content-section {
+    padding: 6px 12px;
+  }
+
+  .account-heading {
+    font-size: 1.75rem;
+  }
+
+  .account-img {
+    height: 80px;
+    width: 80px;
+  }
+
+  .cardd {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+}
+
+/* For screens smaller than 576px */
+@media (max-width: 576px) {
+  body {
+    margin-top: 3rem;
+  }
+
+  .content-section {
+    padding: 4px 8px;
+  }
+
+  .account-heading {
+    font-size: 1.5rem;
+  }
+
+  .account-img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 6px;
+  }
+}
+
+
