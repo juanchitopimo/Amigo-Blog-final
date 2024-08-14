@@ -6,6 +6,8 @@
 
 <img width="1131" alt="Screenshot 2024-08-14 at 15 03 30" src="https://github.com/user-attachments/assets/0fa20c3c-9dd4-45b3-af3a-43b8f1023d23">
 
+https://amigo-blog-fd9194dedf54.herokuapp.com/login/?next=/
+
 ## Features
 
 - **CRUD Functionality**: 
