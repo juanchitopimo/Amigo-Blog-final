@@ -158,7 +158,8 @@ The Amigo Blog app has been designed with a mobile-first approach to ensure a se
 - **Layout Responsiveness**: In some sizes, the layout responsiveness is not perfect, leading to design inconsistencies across different devices.
 - **Blog Post Editing**: The blog post editing options are limited. There is also an issue related to finding a valid digest in the 'integrity' attribute, which may affect certain security checks.
 - **Hero Image and Message**: The hero image and message could be improved for better visual appeal and user engagement.
-
+- When DEBUG in the project settings is set to False, images won't load. This issue occurred at the final stage, where there was no time to investigate.
+  
 ## Technologies Used
 
 - **CSS**: For styling and layout of the app.
