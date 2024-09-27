@@ -362,4 +362,16 @@ button {
   }
 }
 
+.hero-image {
+  width: 100%;
+  height: auto;
+  max-height: 600px; /* You can adjust this based on the desired height */
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures the image covers the div without distortion */
+}
 
