@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-juanchitopi-amigoblogfi-k70hus11fu2.ws.codeinstitute-ide.net', '.herokuapp.com']
+    '8000-juanchitopi-amigoblogfi-00oj6zvspww.ws.codeinstitute-ide.net', '.herokuapp.com']
 
 
 # Application definition
