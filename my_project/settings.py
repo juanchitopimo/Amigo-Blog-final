@@ -151,9 +151,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Add this line
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles/images'),  # Add this line
-]  
 
 
 # Default primary key field type
