@@ -13,6 +13,8 @@ h1, h2, h3, h4, h5, h6, p {
   font-family: 'Poppins', sans-serif;
 }
 
+
+
 ul {
   margin: 0;
 }
@@ -362,16 +364,14 @@ button {
   }
 }
 
-.hero-image {
-  width: 100%;
-  height: auto;
-  max-height: 600px; /* You can adjust this based on the desired height */
-  overflow: hidden;
+/* Class selector */
+.hero-msg {
+  text-align: center;
+  color: #a41b1b;
 }
 
-.hero-image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover; /* Ensures the image covers the div without distortion */
+/* ID selector (higher specificity, will overwrite .hero-msg styles) */
+#hero-message {
+  color: #FF0000; /* This will overwrite the color defined in .hero-msg */
 }
 
