@@ -1,9 +1,35 @@
 {% extends 'blog/base.html' %}
 {% load crispy_forms_tags %}
-
+{% load static %}
 
 {% block content %}
     <div class="content-section">
+
+        <!-- Hero Image and Message -->
+        <div class="hero-msg" style="text-align: center; margin-top: 50px; color: #333;">
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 0px; padding-bottom: 0;">
+                <img src="{% static 'blog/images/amigo_logo4.png' %}" alt="Logo" class="responsive-img" style="max-width: 37%; height: auto;">
+            </div>
+
+            <h1 class="responsive-h1" style="font-size: 3.5em; color: #FF6F00; font-weight: bold;">Amigo Blog</h1>
+            <h3 class="responsive-h3" style="font-size: 1.5em; color: #666; font-weight: bold; margin-bottom: 40px;">Handshake for community in the UK</h3>
+        </div>
+
+        <style>
+            /* Make the image disappear on screens 600px wide or smaller */
+            @media (max-width: 600px) {
+                .responsive-img {
+                    display: none;
+                }
+                .responsive-h1 {
+                    font-size: 2em; /* Smaller font size for h1 on mobile */
+                }
+                .responsive-h3 {
+                    font-size: 1em; /* Smaller font size for h3 on mobile */
+                }
+            }
+        </style>
+
         <form action="" method="post">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -11,9 +37,10 @@
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login In</button>
+                <button class="btn btn-outline-info" type="submit">Log In</button>
             </div>
         </form>
+        
         <div class="border-top pt-3">
             <small class="text-muted">Do you need an account? <a href="{% url 'register' %}">Register Now</a></small>
         </div>
