@@ -1,4 +1,6 @@
+
 {% extends 'blog/base.html' %}
+{% load static %}
 {% block content %}
 <div class="container" style="background: white; padding: 20px; margin-top: 10px; border-radius: 20px;">
     <h1>About Us</h1>
@@ -25,7 +27,7 @@
     </ul>
 
     <h2>Meet the Founder</h2>
-    <img src="/media/images/founder.jpeg" alt="Juan Fernando Pinzon Moreno"
+    <img src="{% static 'blog/images/juan_about.png' %}" alt="Juan Fernando Pinzon Moreno"
         style="width: 150px; border-radius: 50%; display: block; margin: 20px auto;">
     <p><strong>Juan Fernando Pinzon Moreno</strong><br>
         Juan is a passionate advocate for the Latin community in the UK. As a Latin immigrant himself, he understands

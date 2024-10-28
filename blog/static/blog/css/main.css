@@ -119,7 +119,7 @@ svg {
   display: inline-block;
   padding: 12px 3px;
   margin: 10px 0;
-  color: #03e9f4;
+  color: #f3f1aa;
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.5s;
@@ -134,15 +134,16 @@ svg {
   background: #ffffff;
   text-decoration: none;
   color: #050801;
-  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px #03e9f4;
-  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+  /* box-shadow: 0 0 5px #5cbd2f, 0 0 25px #5cbd2f, 0 0 50px #5cbd2f, 0 0 200px #5cbd2f; */
+  /* -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);  */
 }
 
-/* Auth link animation spans
+
+/* Auth link animation spans */
 #auth-links span {
   position: absolute;
   display: block;
-} */
+} 
 
 /* First span animation */
 #auth-links span:nth-child(1) {
@@ -150,7 +151,7 @@ svg {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #03e9f4);
+  background: linear-gradient(90deg, transparent, #c3c2b7);
   animation: animate1 1s linear infinite;
 }
 
@@ -246,6 +247,27 @@ svg {
   margin: auto;
   text-align: center;
   border-radius: 30px;
+}
+
+/* Card styles for mobile screens */
+@media (max-width: 768px) {
+  .cardd {
+    max-width: 90%; /* Make the card width flexible for smaller screens */
+    margin-top: 20px; /* Add extra margin on top if desired */
+    margin-bottom: 30px; /* Add extra margin on top if desired */
+    padding: 15px; /* Reduce padding for smaller screens */
+    border-radius: 20px; /* Slightly smaller border radius on mobile */
+  }
+}
+
+@media (max-width: 425px) {
+  .cardd {
+    max-width: 90%; /* Make the card width flexible for smaller screens */
+    margin-top: 60px; /* Add extra margin on top if desired */
+    margin-bottom: 30px; /* Add extra margin on top if desired */
+    padding: 15px; /* Reduce padding for smaller screens */
+    border-radius: 20px; /* Slightly smaller border radius on mobile */
+  }
 }
 
 /* Profile heading styles */
