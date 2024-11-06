@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-juanchitopi-amigoblogfi-00oj6zvspww.ws.codeinstitute-ide.net', '.herokuapp.com']
+    '8000-juanchitopi-amigoblogfi-wbn9cwh1cpv.ws-eu116.gitpod.io', '.herokuapp.com']
 
 
 # Application definition
@@ -111,9 +111,11 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.codeinstitute-ide.net/",
-    "https://*.herokuapp.com"
+    "https://*.codeinstitute-ide.net",
+    "https://*.herokuapp.com",
+    "https://8000-juanchitopi-amigoblogfi-wbn9cwh1cpv.ws-eu116.gitpod.io"
 ]
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
